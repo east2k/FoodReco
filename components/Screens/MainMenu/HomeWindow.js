@@ -79,12 +79,10 @@ const HomeWindow = ({ navigation }) => {
     return (
       <Pressable
         key={index}
-        style={item.currentState ? styles.gotoButtonHover : styles.gotoAnotherWindow}
+        style={(state) => state.pressed ? styles.gotoButtonHover : styles.gotoAnotherWindow}
         onPress={item.pressableEvent}
-        onPressIn={() => handlePressIn(item.id)}
-        onPressOut={() => handlePressOut(item.id)}
       >
-        <Text style={item.currentState ? styles.gotoTextHover : styles.gotoText}>{item.pressableText}</Text>
+        <Text style={styles.gotoText}>{item.pressableText}</Text>
       </Pressable>
     )
   })
@@ -106,11 +104,11 @@ const styles = StyleSheet.create({
     fontWeight: 800,
     marginHorizontal: 20,
     marginTop: 50,
-    color: "#fff"
+    color: "#000"
   },
   container: {
     flex: 1,
-    backgroundColor: '#02aab0',
+    backgroundColor: '#D0F0C0',
   },
   gotoContainer: {
     display: "flex",
@@ -131,10 +129,11 @@ const styles = StyleSheet.create({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#a7d1d8",
+    backgroundColor: "#375F47",
+    color: "#fff",
     padding: 25,
     width: "90%",
-    borderRadius: 50
+    borderRadius: 7
 
   },
   gotoButtonHover: {
@@ -144,7 +143,7 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     padding: 25,
     width: "90%",
-    borderRadius: 50
+    borderRadius: 7
   },
   gotoTextHover: {
     color: "black",

@@ -162,7 +162,7 @@ const styles = StyleSheet.create({
     scrollViewContainer: {
         position: "relative",
         flex: 1,
-        backgroundColor: '#02aab0',
+        backgroundColor: '#D0F0C0',
     },
     container: {
         padding: 20,
@@ -172,7 +172,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         marginTop: 50,
         marginBottom: 20,
-        color: "#fff"
+        color: "#000"
     },
     subHeading: {
         fontSize: 20,
@@ -185,7 +185,7 @@ const styles = StyleSheet.create({
     searchInput: {
         height: 40,
         borderWidth: 1,
-        borderColor: '#ddd',
+        borderColor: "#000",
         borderRadius: 5,
         paddingHorizontal: 10,
     },
@@ -210,7 +210,7 @@ const styles = StyleSheet.create({
     },
     checkboxLabel: {
         fontSize: 18,
-        color: "#fff",
+        color: "#000",
     },
     currentBlacklistedItems: {
         display: "flex",
@@ -230,7 +230,7 @@ const styles = StyleSheet.create({
     },
     currentBlacklistedItemsHeader: {
         fontSize: 21,
-        color: "#fff"
+        color: "#000"
     },
     gotoText: {
         color: "white",
@@ -245,7 +245,7 @@ const styles = StyleSheet.create({
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: "#a7d1d8",
+        backgroundColor: "#375F47",
         padding: 25,
         width: "100%",
         bottom: 0
@@ -261,7 +261,7 @@ const styles = StyleSheet.create({
         width: 100,
         height: 55,
         borderRadius: 150,
-        backgroundColor: "#a7d1d8"
+        backgroundColor: "#375F47",
     },
     backButtonHover: {
         position: "absolute",
@@ -274,11 +274,11 @@ const styles = StyleSheet.create({
         height: 55,
         borderRadius: 150,
         backgroundColor: "#fff",
-        color: '#000'
     },
     backButtonText: {
         fontSize: 21,
-        margin: "auto"
+        margin: "auto",
+        color: "#fff"
     }
 });
 

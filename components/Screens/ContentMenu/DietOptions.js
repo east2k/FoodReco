@@ -59,7 +59,7 @@ const DietOptions = ({ navigation }) => {
         return (
             <Pressable
                 key={index}
-                style={styles.gotoAnotherWindow}
+                style={(state) => state.pressed ? styles.gotoButtonHover : styles.gotoAnotherWindow}
                 onPress={() => item.pressableEvent(userData)}
             >
                 <Text style={styles.gotoText}>
@@ -153,7 +153,7 @@ const DietOptions = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <Pressable
-                style={styles.backButton}
+                style={(state) => state.pressed ? styles.backButtonHover : styles.backButton}
                 onPress={changeActiveWindow}
             >
                 <Text style={styles.backButtonText}>Back</Text>
@@ -187,7 +187,7 @@ const DietOptions = ({ navigation }) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#02aab0',
+        backgroundColor: '#D0F0C0',
         alignItems: 'center',
         justifyContent: 'center', flexDirection: 'row'
     },
@@ -203,11 +203,21 @@ const styles = StyleSheet.create({
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: "#a7d1d8",
+        backgroundColor: "#375F47",
+        color: "#fff",
         padding: 25,
         width: "90%",
-        borderRadius: 50
+        borderRadius: 7
 
+    },
+    gotoButtonHover: {
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        backgroundColor: "white",
+        padding: 25,
+        width: "90%",
+        borderRadius: 7
     },
     gotoContainer: {
         display: "flex",
@@ -226,7 +236,20 @@ const styles = StyleSheet.create({
         width: 100,
         height: 55,
         borderRadius: 150,
-        backgroundColor: "#a7d1d8"
+        backgroundColor: "#375F47"
+    },
+    backButtonHover: {
+        position: "absolute",
+        top: 35,
+        right: 10,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        width: 100,
+        height: 55,
+        borderRadius: 150,
+        backgroundColor: "#fff",
+        color: '#000'
     },
     backButtonText: {
         fontSize: 21,

@@ -21,7 +21,7 @@ const StartScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#02aab0',
+        backgroundColor: '#D0F0C0',
         alignItems: 'center',
         justifyContent: 'center',
     },
@@ -32,10 +32,10 @@ const styles = StyleSheet.create({
         borderRadius: 15
     },
     startButton: {
-        backgroundColor: "#000",
-        width: "35%",
+        backgroundColor: "#375F47",
+        width: "80%",
         padding: 25,
-        borderRadius: 15
+        borderRadius: 7
     },
     startButtonText: {
         color: "#fff",

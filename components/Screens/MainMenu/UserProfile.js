@@ -85,14 +85,14 @@ export default function UserProfile({ navigation }) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#02aab0',
+        backgroundColor: '#D0F0C0',
         alignItems: 'center',
         justifyContent: 'center',
     },
     titleLabel: {
         fontSize: 21,
         fontWeight: 'bold',
-        color: 'white',
+        color: '#000',
         padding: 25,
         marginTop: 25
     },
@@ -133,7 +133,7 @@ const styles = StyleSheet.create({
         width: 100,
         height: 55,
         borderRadius: 150,
-        backgroundColor: "#a7d1d8"
+        backgroundColor: "#375F47",
     },
     backButtonHover: {
         position: "absolute",
@@ -150,6 +150,7 @@ const styles = StyleSheet.create({
     },
     backButtonText: {
         fontSize: 21,
-        margin: "auto"
+        margin: "auto",
+        color: "#fff"
     }
 });

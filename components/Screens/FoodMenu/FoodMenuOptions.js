@@ -33,7 +33,7 @@ const FoodMenuOptions = ({ chosenMeal, setChosenMeal }) => {
         return (
             <Pressable
                 key={index}
-                style={styles.gotoAnotherWindow}
+                style={(state) => state.pressed ? styles.gotoButtonHover : styles.gotoAnotherWindow}
                 onPress={item.pressableEvent}
             >
                 <Text style={styles.gotoText}>
@@ -78,7 +78,7 @@ const FoodMenuOptions = ({ chosenMeal, setChosenMeal }) => {
                         :
                         <View style={styles.container}>
                             <Pressable
-                                style={styles.backButton}
+                                style={(state) => state.pressed ? styles.backButtonHover : styles.backButton}
                                 onPress={changeActiveWindow}
                             >
                                 <Text style={styles.backButtonText}>Back</Text>
@@ -96,7 +96,7 @@ const FoodMenuOptions = ({ chosenMeal, setChosenMeal }) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#02aab0',
+        backgroundColor: '#D0F0C0',
         alignItems: 'center',
         justifyContent: 'center',
         flexDirection: 'column',
@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 36,
         fontWeight: 700,
-        color: '#fff',
+        color: '#000',
         marginBottom: 15
     },
     foodNameLabel: {
@@ -124,13 +124,20 @@ const styles = StyleSheet.create({
         padding: 5
     },
     gotoAnotherWindow: {
-        backgroundColor: "#a7d1d8",
+        backgroundColor: "#375F47",
         paddingHorizontal: 75,
         paddingVertical: 25,
         width: "100%",
-        borderRadius: 50,
-        marginTop: 50
-
+        marginTop: 50,
+        borderRadius: 7
+    },
+    gotoButtonHover: {
+        backgroundColor: "#fff",
+        paddingHorizontal: 75,
+        paddingVertical: 25,
+        width: "100%",
+        marginTop: 50,
+        borderRadius: 7
     },
     gotoContainer: {
         display: "flex",
@@ -139,6 +146,7 @@ const styles = StyleSheet.create({
         height: "100%"
     },
     backButton: {
+        zIndex: 1,
         position: "absolute",
         top: 35,
         right: 10,
@@ -148,8 +156,19 @@ const styles = StyleSheet.create({
         width: 100,
         height: 55,
         borderRadius: 150,
-        backgroundColor: "#a7d1d8",
-        zIndex: 1,
+        backgroundColor: "#375F47",
+    },
+    backButtonHover: {
+        position: "absolute",
+        top: 35,
+        right: 10,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        width: 100,
+        height: 55,
+        borderRadius: 150,
+        backgroundColor: "#fff",
     },
     backButtonText: {
         fontSize: 21,

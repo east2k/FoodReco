@@ -270,16 +270,16 @@ const styles = StyleSheet.create({
         flex: 1,
         padding: 20,
         paddingTop: 40,
-        backgroundColor: '#02aab0',
+        backgroundColor: '#D0F0C0',
     },
     screenTitle: {
-        color: "#fff",
+        color: "#000",
         fontSize: 24,
         fontWeight: 'bold',
         marginBottom: 20
     },
     categoryLabel: {
-        color: "#fff",
+        color: "#000",
         fontSize: 21,
         fontWeight: 'bold',
         marginTop: 20,
@@ -294,14 +294,14 @@ const styles = StyleSheet.create({
         borderWidth: 2,
         borderRadius: 50,
         padding: 10,
-        borderColor: '#fff',
+        borderColor: '#000',
     },
     radioButtonSelected: {
-        borderColor: '#000',
-        backgroundColor: '#83d3d6'
+        borderColor: '#fff',
+        backgroundColor: '#375F47'
     },
     radioButtonText: {
-        color: "#fff",
+        color: "#000",
         fontSize: 16
     },
     radioButtonTextSelected: {
@@ -315,7 +315,7 @@ const styles = StyleSheet.create({
     inputLabel: {
         fontSize: 16,
         marginBottom: 5,
-        color: "#fff"
+        color: "#000"
     },
     inputBox: {
         borderWidth: 1,
@@ -336,7 +336,7 @@ const styles = StyleSheet.create({
         marginBottom: 10
     },
     activityLevelButtonSelected: {
-        backgroundColor: '#83d3d6'
+        backgroundColor: '#375F47'
     },
     activityLevelButtonText: {
         color: "#000",

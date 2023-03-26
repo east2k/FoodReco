@@ -17,7 +17,7 @@ const Ingredients = ({ chosenMeal, setActiveWindow }) => {
                 ))}
             </ScrollView>
             <Pressable
-                style={styles.backButton}
+                style={(state) => state.pressed ? styles.backButtonHover : styles.backButton}
                 onPress={changeActiveWindow}
             >
                 <Text style={styles.backButtonText}>Back</Text>
@@ -29,7 +29,7 @@ const Ingredients = ({ chosenMeal, setActiveWindow }) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#02aab0',
+        backgroundColor: '#D0F0C0',
         alignItems: 'center',
         justifyContent: 'center',
         flexDirection: 'column',
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 36,
         fontWeight: 700,
-        color: '#fff',
+        color: '#000',
         marginTop: 100,
         marginBottom: 20,
     },
@@ -57,6 +57,7 @@ const styles = StyleSheet.create({
         borderBottomColor: "#b3b3b3"
     },
     backButton: {
+        zIndex: 1,
         position: "absolute",
         top: 35,
         right: 10,
@@ -66,8 +67,19 @@ const styles = StyleSheet.create({
         width: 100,
         height: 55,
         borderRadius: 150,
-        backgroundColor: "#a7d1d8",
-        zIndex: 1,
+        backgroundColor: "#375F47",
+    },
+    backButtonHover: {
+        position: "absolute",
+        top: 35,
+        right: 10,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        width: 100,
+        height: 55,
+        borderRadius: 150,
+        backgroundColor: "#fff",
     },
     backButtonText: {
         fontSize: 21,
