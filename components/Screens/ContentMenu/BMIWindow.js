@@ -1,62 +1,39 @@
-import React, { useState } from 'react';
-import { View, Text, Image, StyleSheet, Pressable } from 'react-native';
-import { useRoute } from '@react-navigation/native';
+import React from 'react';
+import { Text, Image, StyleSheet } from 'react-native';
 
-const BMIWindow = ({ navigation }) => {
-    const route = useRoute();
-    const { label } = route.params;
-    console.log(label);
+const BMIWindow = ({bmiResult}) => {
+    console.log(bmiResult);
+    let label;
+    if (bmiResult < 16) {
+        label = "Your BMI is: " + bmiResult + " and you are in the range of SEVERELY UNDERWEIGHT CATEGORY";
+    } else if (bmiResult >= 16 && bmiResult < 18.5) {
+        label = "Your BMI is: " + bmiResult + " and you are in the range of UNDERWEIGHT CATEGORY";
+    } else if (bmiResult >= 18.5 && bmiResult < 25) {
+        label = "Your BMI is: " + bmiResult + " and you are in the range of NORMAL CATEGORY";
+    } else if (bmiResult >= 25 && bmiResult < 30) {
+        label = "Your BMI is: " + bmiResult + " and you are in the range of OVERWEIGHT CATEGORY";
+    } else if (bmiResult >= 30) {
+        label = "Your BMI is: " + bmiResult + " and you are in the range of OBESE CATEGORY";
+    }
     return (
-        <View style={styles.container}>
-            <Image source={require('../../../assets/images/bmi-table.png')} style={styles.bmiImage} />
-            <Text style={styles.bmiText}>{label}</Text>
-            <Pressable
-                style={styles.backButton}
-                onPress={() => navigation.navigate('DietOptions')}
-            >
-                <Text style={styles.backButtonTextHover}>Back</Text>
-            </Pressable>
-        </View>
+        <>
+            <Image source={require('../../../assets/images/bmi-table.png')} />
+            <Text style={styles.labelText}>{label}</Text>
+        </>
     );
 };
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#02aab0',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    bmiImage: {
-        width: 385,
-        height: 455
-    },
-    bmiText: {
-        fontSize: 32,
-        marginTop: 15,
-        width: "80%",
+    labelText: {
+        fontSize: 24,
+        marginTop: 0,
+        width: "50%",
         textAlign: 'center',
+        flexShrink: 1,
         color: "#000",
         borderRadius: 15,
         backgroundColor: "#fff"
     },
-    backButton: {
-        position: "absolute",
-        top: 35,
-        right: 10,
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        width: 100,
-        height: 55,
-        borderRadius: 150,
-        backgroundColor: "#a7d1d8"
-    },
-    backButtonTextHover: {
-        fontSize: 21,
-        color: "#000",
-        margin: "auto"
-    }
 });
 
 export default BMIWindow;

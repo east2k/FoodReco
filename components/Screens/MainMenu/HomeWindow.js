@@ -14,7 +14,7 @@ const HomeWindow = ({ navigation }) => {
     {
       id: 2,
       currentState: false,
-      pressableText: "View Diet",
+      pressableText: "View Body Composition & Diet",
       pressableEvent: () => openBodyTypeWindow()
     },
     {

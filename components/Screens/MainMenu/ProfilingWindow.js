@@ -223,7 +223,7 @@ export default function ProfilingWindow({ navigation }) {
             {
                 gender === 2 &&
                 <View style={styles.inputContainer}>
-                    <Text style={styles.inputLabel}>Hip Circumference (in cm)</Text>
+                    <Text style={styles.inputLabel}>* Hip Circumference (in cm)</Text>
                     <TextInput
                         style={styles.inputBox}
                         onChangeText={(value) => handleHipChange(value)}

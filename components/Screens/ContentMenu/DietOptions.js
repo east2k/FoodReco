@@ -3,10 +3,13 @@ import {
     View,
     Text,
     Pressable,
-    StyleSheet,
-    Image
+    StyleSheet
 } from 'react-native';
 import * as FileSystem from 'expo-file-system';
+
+import BFPWindow from './BFPWindow';
+import BMIWindow from './BMIWindow';
+import BMRWindow from './BMRWindow';
 
 const DietOptions = ({ navigation }) => {
     const [userData, setUserData] = useState({});
@@ -68,65 +71,16 @@ const DietOptions = ({ navigation }) => {
             </Pressable>
         )
     })
-    const [bmiLabel, setBmiLabel] = useState("")
 
-    const openBMIWindow = ({ bmiResult }) => {
-        let label;
-        if (bmiResult < 16) {
-            label = "Your BMI is: " + bmiResult + " and you are in the range of SEVERELY UNDERWEIGHT CATEGORY";
-        } else if (bmiResult >= 16 && bmiResult < 18.5) {
-            label = "Your BMI is: " + bmiResult + " and you are in the range of UNDERWEIGHT CATEGORY";
-        } else if (bmiResult >= 18.5 && bmiResult < 25) {
-            label = "Your BMI is: " + bmiResult + " and you are in the range of NORMAL CATEGORY";
-        } else if (bmiResult >= 25 && bmiResult < 30) {
-            label = "Your BMI is: " + bmiResult + " and you are in the range of OVERWEIGHT CATEGORY";
-        } else if (bmiResult >= 30) {
-            label = "Your BMI is: " + bmiResult + " and you are in the range of OBESE CATEGORY";
-        }
-        setBmiLabel(label)
+    const openBMIWindow = () => {
         setActiveWindow(1)
     };
 
-    const [bfpLabel, setBfpLabel] = useState("")
-
-    const openBodyFatWindow = ({ gender, bfpResult }) => {
-        let label;
-        if (gender === "Male") {
-            if (bfpResult < 6) {
-                label = "Your body fat percentage is: " + bfpResult + "% and you are in the range of ESSENTIAL FAT CATEGORY";
-            } else if (bfpResult >= 6 && bfpResult < 24) {
-                label = "Your body fat percentage is: " + bfpResult + "% and you are in the range of ATHLETES CATEGORY";
-            } else if (bfpResult >= 24 && bfpResult < 31) {
-                label = "Your body fat percentage is: " + bfpResult + "% and you are in the range of FITNESS CATEGORY";
-            } else if (bfpResult >= 31 && bfpResult < 37) {
-                label = "Your body fat percentage is: " + bfpResult + "% and you are in the range of ACCEPTABLE CATEGORY";
-            } else {
-                label = "Your body fat percentage is: " + bfpResult + "% and you are in the range of OBESITY CATEGORY";
-            }
-        } else {
-            if (bfpResult < 10) {
-                label = "Your body fat percentage is: " + bfpResult + "% and you are in the range of ESSENTIAL FAT CATEGORY";
-            } else if (bfpResult >= 10 && bfpResult < 21) {
-                label = "Your body fat percentage is: " + bfpResult + "% and you are in the range of ATHLETES CATEGORY";
-            } else if (bfpResult >= 21 && bfpResult < 28) {
-                label = "Your body fat percentage is: " + bfpResult + "% and you are in the range of FITNESS CATEGORY";
-            } else if (bfpResult >= 28 && bfpResult < 35) {
-                label = "Your body fat percentage is: " + bfpResult + "% and you are in the range of ACCEPTABLE CATEGORY";
-            } else {
-                label = "Your body fat percentage is: " + bfpResult + "% and you are in the range of OBESITY CATEGORY";
-            }
-        }
-        // alert(label);
-        // navigation.navigate('BFPWindow', { label: label });
+    const openBodyFatWindow = () => {
         setActiveWindow(2)
-        setBfpLabel(label)
     };
 
-    const [bmrLabel, setBmrLabel] = useState("")
-
     const openBasalMetabolicRateWindow = (userData) => {
-        label = `Your Basal Metabolic Rate: ${userData.bmrResult} is the \nnumber of calories you burn as your body performs. Also known as Resting Metabloic Rate.`;
-        setBmrLabel(label);
         setActiveWindow(3);
     };
 
@@ -160,20 +114,19 @@ const DietOptions = ({ navigation }) => {
             </Pressable>
             <View style={styles.gotoContainer}>
                 {activeWindow === 1 ?
-                    <>
-                        <Image source={require('../../../assets/images/bmi-table.png')} style={styles.bmiImage} />
-                        <Text style={styles.labelText}>{bmiLabel}</Text>
-                    </>
+                    <BMIWindow
+                        bmiResult={userData.bmiResult}
+                    />
                     : activeWindow === 2 ?
-                        <>
-                            <Text style={styles.labelText}>{bfpLabel}</Text>
-                            <Image source={require('../../../assets/images/bfp-table.png')} style={styles.bfpImage} />
-                        </>
+                        <BFPWindow
+                            age={userData.age}
+                            gender={userData.gender}
+                            bfpResult={userData.bfpResult}
+                        />
                         : activeWindow === 3 ?
-                            <>
-                                <Text style={styles.labelTextHeader}>BMR Result: </Text>
-                                <Text style={styles.labelText}>{bmrLabel}</Text>
-                            </>
+                            <BMRWindow
+                                bmrResult={userData.bmrResult}
+                            />
                             :
                             <>
                                 {newPressable}
